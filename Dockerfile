@@ -1,5 +1,7 @@
 FROM ubuntu
 
+LABEL MAINTAINER="Eduardo Luz <eduardo@eduardo-luz.com>"
+LABEL VERSION="0.0.2"
 
 RUN  export DEBIAN_FRONTEND=noninteractive \
     && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime \
@@ -19,14 +21,3 @@ RUN ln -fs /etc/php/7.4/mods-available/zephir.ini /etc/php/7.4/cli/conf.d/30-zep
 
 COPY zephir.phar /usr/bin/zephir 
 RUN chmod 755 /usr/bin/zephir
-
-# /etc/php/7.4/cli
-#  /usr/lib/php/20190902/zephir_parser.so
-# RUN sudo apt-get install -y php7.2-dev gcc make re2c autoconf automake
-
-# git clone git://github.com/phalcon/php-zephir-parser.git
-# cd php-zephir-parser
-# phpize
-# ./configure
-# make
-# sudo make install
